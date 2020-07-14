@@ -1,7 +1,12 @@
 <template>
   <div class="wrapper">
     <div class="stock-cards-group">
-      <app-stock-card v-for="(stock, index) in availableStocks" :stock="stock" :key="index"></app-stock-card>
+      <app-stock-card
+        v-for="(stock, index) in availableStocks"
+        :stock="stock"
+        :operation="'Buy'"
+        :key="index"
+      ></app-stock-card>
     </div>
   </div>
 </template>

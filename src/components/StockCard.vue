@@ -3,14 +3,14 @@
     <div class="card-header">
       <span class="stock-title">{{ stock['title'] }}</span>
       <span class="stock-price">Price: {{ stock['price'] }}</span>
-      <span class="stock-quantity" v-if="quantity>0">| Quantity: {{ stock['quantity'] }}</span>
+      <span class="stock-quantity" v-if="stock['quantity']>0">| Quantity: {{ stock['quantity'] }}</span>
     </div>
     <div class="card-body">
       <span class="card-title">
-        <input type="text" placeholder="Quantity" />
+        <input type="text" placeholder="Quantity" v-model="inputStock" />
       </span>
       <span class="card-text">
-        <button class="btn btn-primary">Buy</button>
+        <button class="btn btn-primary" @click="buyStock">{{ operation }}</button>
       </span>
     </div>
   </div>
@@ -18,7 +18,21 @@
 
 <script>
 export default {
-  props: ["stock", "quantity"]
+  data: function() {
+    return {
+      inputStock: ""
+    };
+  },
+  props: ["stock", "operation"],
+  methods: {
+    buyStock() {
+      this.$store.dispatch(this.operation.toLowerCase() + "Stock", {
+        title: this.stock["title"],
+        price: parseFloat(this.stock["price"].substr(1)),
+        quantity: parseInt(this.inputStock)
+      });
+    }
+  }
 };
 </script>
 
