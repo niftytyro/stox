@@ -17,7 +17,7 @@
     <div class="my-2 my-lg-0" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <span class="navbar-text">End Day</span>
+          <span class="navbar-text" id="end-day-button" @click="endDay">End Day</span>
         </li>
         <li class="nav-item">
           <span class="navbar-text">Funds: {{ fund }}</span>
@@ -32,6 +32,11 @@ export default {
   computed: {
     fund() {
       return this.$store.getters.getFund;
+    }
+  },
+  methods: {
+    endDay() {
+      this.$store.dispatch("endDay");
     }
   }
 };
@@ -55,7 +60,8 @@ export default {
 }
 .nav-item .item {
   color: #00000077;
-  /* padding: 0.5rem 1rem 0; */
-  /* font-size: 1rem; */
+}
+#end-day-button {
+  cursor: pointer;
 }
 </style>

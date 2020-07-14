@@ -3,6 +3,7 @@
     <div class="card-header">
       <span class="stock-title">{{ stock['title'] }}</span>
       <span class="stock-price">Price: {{ stock['price'] }}</span>
+      <span class="stock-quantity" v-if="quantity>0">| Quantity: {{ stock['quantity'] }}</span>
     </div>
     <div class="card-body">
       <span class="card-title">
@@ -17,7 +18,7 @@
 
 <script>
 export default {
-  props: ["stock"]
+  props: ["stock", "quantity"]
 };
 </script>
 
@@ -35,7 +36,8 @@ export default {
   font-weight: 500;
   font-size: 18px;
 }
-.stock-price {
+.stock-price,
+.stock-quantity {
   font-size: 13px;
   margin-left: 5px;
 }

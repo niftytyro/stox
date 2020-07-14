@@ -33,13 +33,34 @@ export const store = new VueX.Store({
                     stock += '.00';
                 }
                 else {
-                    stock = stock.substr(0, stock.indexOf('.')) + stock.substr(fund.indexOf('.')).padEnd(3, '0');
+                    stock = stock.substr(0, stock.indexOf('.')) + stock.substr(stock.indexOf('.'), 3).padEnd(3, '0');
                 }
+
                 stock = '$' + stock;
                 stocks.push({ 'title': value['title'], 'price': stock });
             });
             return stocks;
         },
-        // 'get'
+    },
+    mutations: {
+        'endDay'(state) {
+            state["available-stocks"].forEach((value, index) => {
+                var change = Math.random();
+                var factor = Math.random() * 10;
+                if (Math.random() < 0.5) {
+                    var price = value.price - change * factor;
+                } else {
+                    var price = value.price + change * factor;
+                }
+                state["available-stocks"][index].price = price;
+            });
+            console.log('commited');
+        }
+    },
+    actions: {
+        'endDay'(context) {
+            console.log('dispatched');
+            context.commit('endDay');
+        }
     }
 });
