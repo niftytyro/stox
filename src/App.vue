@@ -1,6 +1,9 @@
 <template>
   <div class="container">
     <app-navbar></app-navbar>
+    <div class="routing-view">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -17,5 +20,8 @@ export default {
 <style scoped>
 .container {
   padding-top: 30px;
+}
+.routing-view {
+  margin: 20px 0;
 }
 </style>

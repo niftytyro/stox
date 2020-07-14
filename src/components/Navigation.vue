@@ -1,15 +1,17 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">Stock Trader</a>
+    <router-link to="/">
+      <a class="navbar-brand">Stock Trader</a>
+    </router-link>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Portfolio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Stocks</a>
-        </li>
+        <router-link tag="li" class="nav-item" to="/portfolio">
+          <a class="nav-link">Portfolio</a>
+        </router-link>
+        <router-link tag="li" class="nav-item" to="/stocks">
+          <a class="nav-link">Stocks</a>
+        </router-link>
       </ul>
     </div>
     <div class="my-2 my-lg-0" id="navbarSupportedContent">
