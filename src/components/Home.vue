@@ -11,7 +11,7 @@
 export default {
   computed: {
     funds() {
-      return "$10.00";
+      return this.$store.getters.getFund;
     }
   }
 };
@@ -22,7 +22,7 @@ export default {
   border: 1px solid #cccccc;
   border-radius: 2px;
   box-shadow: 0px 0px 5px -2.5px #666666;
-  padding: 20px 20px;
+  padding: 20px;
 }
 h1 {
   color: #000000cc;

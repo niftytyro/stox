@@ -20,7 +20,7 @@
           <span class="navbar-text">End Day</span>
         </li>
         <li class="nav-item">
-          <span class="navbar-text">Funds: ${{ fund }}</span>
+          <span class="navbar-text">Funds: {{ fund }}</span>
         </li>
       </ul>
     </div>
@@ -31,7 +31,7 @@
 export default {
   computed: {
     fund() {
-      return "10.00";
+      return this.$store.getters.getFund;
     }
   }
 };
@@ -45,6 +45,9 @@ export default {
 .navbar-brand {
   color: #666666;
   font-weight: 500;
+}
+.navbar-text {
+  padding: 0 7px;
 }
 .nav-item {
   margin-left: 5px;
